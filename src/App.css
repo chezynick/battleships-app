@@ -9,7 +9,19 @@
 	align-items: center;
 }
 button {
-	width: 200px;
+	width: 500px;
+	height: 480px;
+	position: absolute;
+	top: 19%;
+	left: 33%;
+	font-size: xx-large;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	outline: none;
+	border: 5px solid black;
 }
 .player {
 	color: rgb(37, 37, 37);
@@ -20,16 +32,24 @@ button {
 	justify-content: center;
 	align-items: center;
 }
+.player2 {
+	color: grey;
+	font-size: xx-large;
+	padding-bottom: 20px;
+	background-color: rgb(37, 37, 37);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .header {
 	color: grey;
 	background: black;
-	border-radius: 20%;
+	border: 5px solid grey;
 	font-size: xx-large;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100px;
-
 	margin-bottom: 30px;
 	width: 50%;
 }
@@ -58,10 +78,35 @@ button {
 	justify-content: center;
 }
 .squareMiss {
-	background-color: cadetblue;
+	width: 5px;
+	height: 5px;
+	background: rgb(1, 109, 109);
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: picked 1s forwards linear;
 }
 .squareMiss2 {
-	background-color: rgb(136, 24, 67);
+	width: 5px;
+	height: 5px;
+	background: rgb(122, 98, 19);
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation: picked 1s forwards linear;
+}
+@keyframes picked {
+	0% {
+		transform: rotate(0deg);
+		opacity: 0;
+	}
+
+	100% {
+		transform: rotate(3600deg);
+		opacity: 1;
+	}
 }
 .board {
 	display: grid;
@@ -69,27 +114,84 @@ button {
 	grid-template-rows: repeat(10, 30px);
 	grid-template-columns: repeat(10, 30px);
 }
-.board2 {
-	display: grid;
-	justify-content: center;
-	grid-template-rows: repeat(10, 30px);
-	grid-template-columns: repeat(10, 30px);
-}
+
 .gameUpdate {
 	width: 100%;
-	display: flex;
-	justify-content: space-evenly;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-content: center;
 	height: auto;
-	background: rgb(44, 44, 44);
+	background: cornsilk;
 	font-size: large;
-	color: grey;
+	color: rgb(46, 46, 46);
+	text-align: center;
+	font-size: x-large;
 }
 .winner {
-	width: 100%;
+	width: 500px;
+	height: 480px;
+	position: absolute;
+	top: 18%;
+	left: 33%;
 	background: grey;
-	font-size: 150px;
+	font-size: 100px;
 	color: rgb(37, 36, 36);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.boats1 {
+	background: cornsilk;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.blueBlock {
+	width: 10px;
+	height: 10px;
+	background-color: blue;
+	padding: 5px;
+	display: block;
+	border-right: 1px solid black;
+}
+.redBlock {
+	width: 10px;
+	height: 10px;
+	padding: 5px;
+	background-color: red;
+	border-right: 1px solid black;
+}
+.hits {
+	display: flex;
+}
+.boatHolder {
+	display: flex;
+	width: 60%;
+	height: 100px;
+	justify-content: space-between;
+	margin-left: 10%;
+	align-items: center;
+}
+.boatupdate {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin-top: 30px;
+}
+.boatupdateBorder {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin-top: 30px;
+	border: 5px solid black;
+}
+.hitHolder {
+	display: column;
+	align-items: center;
+	justify-content: left;
+	width: 50%;
 }

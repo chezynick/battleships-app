@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFireAlt, faWater } from '@fortawesome/free-solid-svg-icons';
-const GameBoard = ({ board, updateBoard, shipSunk }) => {
+import { faTimes, faFireAlt, faWater } from '@fortawesome/free-solid-svg-icons';
+const GameBoard = ({ board, updateBoard, boardcolor, player, shipSunk, setBoard, misscolor }) => {
 	const clickHandler = (square) => {
 		board.forEach((a) => {
 			if (a.key === square) {
@@ -16,23 +16,33 @@ const GameBoard = ({ board, updateBoard, shipSunk }) => {
 				}
 			}
 		});
-		updateBoard([...board]);
+		updateBoard([...board], setBoard);
 	};
 
 	return (
 		<div>
-			<div className="player">Player 2's Turn</div>
+			<div className={player === 'Player 1' ? 'player' : 'player2'}>{player}'s Turn</div>
 			<div className="board">
 				{board.map((element) => {
-					return (
-						<div
-							className={element.missed ? 'squareMiss' : 'square'}
-							key={element.key}
-							onClick={() => clickHandler(element.key)}
-						>
-							{element.hit ? <FontAwesomeIcon icon={faFireAlt} /> : <FontAwesomeIcon icon={faWater} />}
-						</div>
-					);
+					if (element.missed === true) {
+						return (
+							<div className={element.missed ? 'squareMiss' : 'square'} key={element.key}>
+								<FontAwesomeIcon icon={faTimes} />
+							</div>
+						);
+					} else if (element.hit === true) {
+						return (
+							<div className={element.missed ? 'squareMiss' : 'square'} key={element.key}>
+								<FontAwesomeIcon icon={faFireAlt} />
+							</div>
+						);
+					} else {
+						return (
+							<div className={element.missed ? 'squareMiss' : 'square'} key={element.key}>
+								<FontAwesomeIcon onClick={() => clickHandler(element.key)} icon={faWater} />
+							</div>
+						);
+					}
 				})}
 			</div>
 		</div>
