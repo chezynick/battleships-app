@@ -1,23 +1,18 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faFireAlt, faWater } from '@fortawesome/free-solid-svg-icons';
-const GameBoard = ({ board, updateBoard, player, shipSunk, setBoard, VrsComputer, setComputerTurn, computerTurn }) => {
+const GameBoard = ({ board, updateBoard, player, setBoard, VrsComputer, setComputerTurn, computerTurn }) => {
 	const clickHandler = (square) => {
 		board.forEach((a) => {
 			setComputerTurn(false);
 			if (a.key === square) {
 				if (a.containsShip) {
 					a.hit = true;
-					//function to work out how many times this ship has been hit
-					const hitLength = board.filter((ship) => ship.containsShip === a.containsShip && ship.hit === true);
-					//calls func with ship name and amount of hits from above
-					shipSunk(a.containsShip, hitLength.length);
 				} else {
 					a.missed = true;
 				}
 			}
 		});
-
 		updateBoard([...board], setBoard);
 	};
 
@@ -31,7 +26,7 @@ const GameBoard = ({ board, updateBoard, player, shipSunk, setBoard, VrsComputer
 		min = Math.ceil(min);
 		max = Math.floor(max);
 		const guess = Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-		console.log(guess);
+
 		if (board[guess].hit === true || board[guess].missed === true) {
 			getRandomInt(0, 100);
 		} else {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GameUpdate = ({ board, board2, Player1, Player2 }) => {
+const GameUpdate = ({ board, board2 }) => {
 	const boardStatus = board.filter((a) => a.hit === true);
 	const player1deaths = (boardStatus.length / 15) * 100;
 	const board2Status = board2.filter((a) => a.hit === true);
