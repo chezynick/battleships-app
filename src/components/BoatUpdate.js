@@ -6,7 +6,6 @@ const BoatUpdate = ({ player, board, playerTurn }) => {
 	const boat2 = board.filter((a) => a.containsShip === player[1].name && a.hit === true);
 	const boat3 = board.filter((a) => a.containsShip === player[2].name && a.hit === true);
 	const boat4 = board.filter((a) => a.containsShip === player[3].name && a.hit === true);
-	console.log(playerTurn, player);
 
 	{
 		if ((playerTurn === false && player[0].name === 5) || (playerTurn === true && player[0].name === 1)) {
