@@ -207,3 +207,10 @@ button {
 	justify-content: left;
 	width: 50%;
 }
+.placeboats {
+	position: absolute;
+	z-index: 20;
+	width: 500px;
+	height: 500px;
+	background: chartreuse;
+}

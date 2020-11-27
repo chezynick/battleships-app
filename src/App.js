@@ -23,13 +23,13 @@ function App() {
 	const ship2 = new Ship(3, 45, true, 2);
 	const ship3 = new Ship(5, 84, false, 3);
 	const ship4 = new Ship(4, 24, true, 4);
-	const [Player1] = useState([ship1, ship2, ship3, ship4]);
+	const Player1 = [ship1, ship2, ship3, ship4];
 	//set boats for player 2 and add to array
 	const ship5 = new Ship(3, 23, false, 5);
-	const ship6 = new Ship(3, 7, true, 6);
+	const ship6 = new Ship(3, 76, true, 6);
 	const ship7 = new Ship(5, 55, false, 7);
 	const ship8 = new Ship(4, 11, true, 8);
-	const [Player2] = useState([ship5, ship6, ship7, ship8]);
+	const Player2 = [ship5, ship6, ship7, ship8];
 	//place ship function
 	const shipPlacer = () => {
 		setDisplay(false);
@@ -46,14 +46,14 @@ function App() {
 			}
 			setBoard([...board]);
 		});
-		Player2.forEach((a) => {
-			if (a.direction) {
-				for (let i = a.position; i < a.position + a.boat.length * 10; i += 10) {
-					board[i].containsShip = a.name;
+		Player2.forEach((b) => {
+			if (b.direction === true) {
+				for (let i = b.position; i < b.position + b.boat.length * 10; i += 10) {
+					board2[i].containsShip = b.name;
 				}
 			} else {
-				for (let i = a.position; i < a.position + a.boat.length; i++) {
-					board2[i].containsShip = a.name;
+				for (let i = b.position; i < b.position + b.boat.length; i++) {
+					board2[i].containsShip = b.name;
 				}
 			}
 			setBoard2([...board2]);
