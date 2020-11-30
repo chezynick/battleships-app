@@ -14,7 +14,7 @@
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "https://chezynick.github.io/battleships",
+  "homepage": "https://chezynick.github.io/battleships-app",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
